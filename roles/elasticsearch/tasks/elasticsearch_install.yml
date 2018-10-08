@@ -1,0 +1,8 @@
+---
+- name: Install Elasticsearch
+  yum:
+      name: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.10.rpm
+      state: present
+
+- name: Ensuring the Elasticsearch Service is running
+  service: name=elasticsearch state=started enabled=yes

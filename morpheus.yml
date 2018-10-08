@@ -1,0 +1,18 @@
+---
+- hosts: elastic_cluster
+  gather_facts: true
+  roles:
+      - elasticsearch
+  become: true
+
+- hosts: rabbit_cluster
+  gather_facts: true
+  roles:
+      - rabbitmq
+  become: true
+
+- hosts: db
+  gather_facts: true
+  roles:
+      - percona
+  become: true

@@ -1,0 +1,17 @@
+epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+config_rabbitmq_ha: true
+enable_rabbitmq_clustering: true
+erlang_cookie: LSKNKBELKPSTDBBCHETL
+vhost_name: morpheus
+durable: true
+routing_key: morpheus
+tags: 'ha-mode=all,ha-sync-mode=automatic'
+rabbitmq_user: morpheus
+rabbitmq_password: password
+rabbitmq_master: 13.56.68.211
+rabbitmq_master_hostname: adamhicks-aws-centos-48
+rabbitmq_plugins: 
+    - rabbitmq_stomp
+    - rabbitmq_management

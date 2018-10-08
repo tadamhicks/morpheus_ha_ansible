@@ -1,0 +1,4 @@
+ansible-morpheus.code-workspace
+*.retry
+.DS_Store
+test.yml

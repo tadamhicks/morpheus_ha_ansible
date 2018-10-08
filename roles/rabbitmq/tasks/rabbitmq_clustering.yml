@@ -1,0 +1,50 @@
+---
+- name: stopping rabbitmq app
+  command: rabbitmqctl stop_app
+
+- name: resetting rabbitmq app
+  command: rabbitmqctl reset
+
+- name: stopping rabbitmq-server
+  service: name=rabbitmq-server state=stopped
+
+- name: copy erlang cookie
+  template: src=erlang.cookie.j2 dest=/var/lib/rabbitmq/.erlang.cookie owner=rabbitmq group=rabbitmq mode=0400 backup=yes
+
+- name: restarting rabbitmq-server on master
+  service: name=rabbitmq-server state=restarted
+  when: inventory_hostname == "{{ rabbitmq_master }}"
+
+- name: starting rabbitmq app on master
+  command: rabbitmqctl start_app
+  register: cluster_master
+  when: inventory_hostname == "{{ rabbitmq_master }}"
+
+- name: sending sigterm to any running rabbitmq processes
+  shell: pkill -u rabbitmq || true
+  when: inventory_hostname != "{{ rabbitmq_master }}"
+
+- name: restarting rabbitmq-server
+  service: name=rabbitmq-server state=restarted
+  when: inventory_hostname != "{{ rabbitmq_master }}"
+
+- name: stopping rabbitmq app
+  command: rabbitmqctl stop_app
+  when: inventory_hostname != "{{ rabbitmq_master }}"
+
+- name: resetting rabbitmq app
+  command: rabbitmqctl reset
+  when: inventory_hostname != "{{ rabbitmq_master }}"
+
+- name: joining rabbitmq cluster
+  command: rabbitmqctl join_cluster 'rabbit@{{ rabbitmq_master_hostname }}'
+  register: cluster_joined
+  when: inventory_hostname != "{{ rabbitmq_master }}"
+
+- name: starting rabbitmq app
+  command: rabbitmqctl start_app
+  when: inventory_hostname != "{{ rabbitmq_master }}"
+
+- name: marking as clustered
+  file: path=/etc/rabbitmq/clustered state=touch
+  when: cluster_master.changed or cluster_joined.changed

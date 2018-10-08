@@ -1,0 +1,7 @@
+percona_repo_url: http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-6.noarch.rpm
+percona_db_version: Percona-XtraDB-Cluster-57
+mysql_root_pw: password
+sstuser: sstuser
+sstpassword: password
+wsrep_cluster_name: morpheus
+percona_master: 54.215.212.76
