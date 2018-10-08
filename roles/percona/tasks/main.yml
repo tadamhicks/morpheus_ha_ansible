@@ -12,3 +12,5 @@
 - include_tasks: percona_config.yml
 
 - include_tasks: percona_bootstrap.yml
+
+- include_tasks: percona_db_create.yml

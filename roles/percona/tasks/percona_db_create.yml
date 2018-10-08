@@ -1,0 +1,4 @@
+---
+- name: Percona create the DB
+  mysql_db:
+      name: "{{ morpheus_db }}"

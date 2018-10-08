@@ -16,3 +16,14 @@
   roles:
       - percona
   become: true
+
+- hosts: morpheus
+  gather_facts: true
+  vars_files:
+      - group_vars/rabbit_cluster
+      - group_vars/elasticsearch
+      - group_vars/db
+      - group_vars/morpheus
+  roles:
+      - morpheus
+  become: true
