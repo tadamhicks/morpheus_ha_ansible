@@ -1,15 +1,15 @@
 ---
-#- hosts: elastic_cluster
-#  gather_facts: true
-#  roles:
-#      - elasticsearch
-#  become: true
+- hosts: elastic_cluster
+  gather_facts: true
+  roles:
+      - elasticsearch
+  become: true
 
-#- hosts: rabbit_cluster
-#  gather_facts: true
-#  roles:
-#      - rabbitmq
-#  become: true
+- hosts: rabbit_cluster
+  gather_facts: true
+  roles:
+      - rabbitmq
+  become: true
 
 
 - hosts: db
