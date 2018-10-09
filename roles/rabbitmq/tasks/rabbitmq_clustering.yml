@@ -36,8 +36,13 @@
   command: rabbitmqctl reset
   when: inventory_hostname != "{{ rabbitmq_master }}"
 
+- name: set Rabbit Master hostname fact
+  set_fact:
+      rabbit_cluster_master: '{{ ansible_hostname }}'
+  when: inventory_hostname == "{{ rabbitmq_master }}"
+
 - name: joining rabbitmq cluster
-  command: rabbitmqctl join_cluster 'rabbit@{{ rabbitmq_master_hostname }}'
+  command: rabbitmqctl join_cluster 'rabbit@{{ rabbitmq_cluster_master }}'
   register: cluster_joined
   when: inventory_hostname != "{{ rabbitmq_master }}"
 

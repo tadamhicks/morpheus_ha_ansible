@@ -4,7 +4,7 @@
       dest: /etc/hosts
       block: | 
           {% for minion in groups['rabbit_cluster'] %}
-          {{ hostvars[minion]['ansible_all_ipv4_addresses'][0] }} {{ hostvars[minion]['ansible_nodename'] }}
+          {{ hostvars[minion]['ansible_all_ipv4_addresses'][0] }} {{ hostvars[minion]['ansible_hostname'] }}
           {% endfor %}
 
       marker: "# {mark} ANSIBLE MANAGED BLOCK"
