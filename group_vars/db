@@ -4,7 +4,7 @@ mysql_root_pw: password
 sstuser: sstuser
 sstpassword: password
 wsrep_cluster_name: morpheus
-percona_master: 54.215.212.76
+percona_master: 52.52.134.198
 morpheus_db: morpheusdb
 morpheus_db_user: morpheus
 morpheus_db_pass: password
