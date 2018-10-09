@@ -1,3 +1,0 @@
-morpheus_package: https://downloads.gomorpheus.com/files/morpheus-appliance-3.5.1-1.el7.x86_64.rpm
-morpheus_offline_package: https://downloads.gomorpheus.com/files/morpheus-appliance-offline-3.5.1-1.noarch.rpm
-rabbitmq_lb:

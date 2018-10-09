@@ -1,16 +1,20 @@
 mysql['enable'] = false
-mysql['host'] = {'10.30.20.139' => 3306,  '10.30.20.153' => 3306,  '10.30.20.196' => 3306}
-mysql['morpheus_db'] = 'morpheusdb'
-mysql['morpheus_db_user'] = 'morpheusadmin'
-mysql['morpheus_password'] = 'morpheus4admin!'
+mysql['host'] = { {% for minion in groups['db'] %}
+'{{ hostvars[minion]['ansible_all_ipv4_addresses'][0] }}' => 3306{% if not loop.last %},{% endif %}
+{% endfor %} }
+mysql['morpheus_db'] = '{{ morpheus_db }}'
+mysql['morpheus_db_user'] = '{{ morpheus_db_user }}'
+mysql['morpheus_password'] = '{{ morpheus_db_pass }}'
 rabbitmq['enable'] = false
-rabbitmq['vhost'] = 'morph'
-rabbitmq['queue_user'] = 'lbuser'
-rabbitmq['queue_user_password'] = 'morpheus4admin'
+rabbitmq['vhost'] = '{{ vhost_name }}'
+rabbitmq['queue_user'] = '{{ rabbitmq_user }}'
+rabbitmq['queue_user_password'] = '{{ rabbitmq_password }}'
 rabbitmq['host'] = '{{ rabbitmq_lb }}'
 rabbitmq['port'] = '5672'
 rabbitmq['stomp_port'] = '61613'
 rabbitmq['heartbeat'] = 50
 elasticsearch['enable'] = false
-elasticsearch['cluster'] = 'morpheusha1'
-elasticsearch['es_hosts'] = {'10.30.20.91' => 9300, '10.30.20.149' => 9300, '10.30.20.165' => 9300}
+elasticsearch['cluster'] = '{{ es_cluster_name }}'
+elasticsearch['es_hosts'] = { {% for minion in groups['elastic_cluster'] %}
+'{{ hostvars[minion]['ansible_all_ipv4_addresses'][0] }}' => 9200{% if not loop.last %},{% endif %}
+{% endfor %} }
