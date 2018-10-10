@@ -1,18 +1,18 @@
 [rabbit_cluster]
-13.56.119.89 ansible_user=ahicks
-54.153.107.60 ansible_user=ahicks
-52.9.72.180 ansible_user=ahicks
+54.176.153.154 ansible_user=ahicks
+52.8.240.222 ansible_user=ahicks
+13.56.8.220 ansible_user=ahicks
 
 [elastic_cluster]
-13.56.44.24 ansible_user=ahicks
-52.9.38.35 ansible_user=ahicks
-13.56.117.39 ansible_user=ahicks
+52.8.165.209 ansible_user=ahicks
+13.56.69.10 ansible_user=ahicks
+13.52.20.118 ansible_user=ahicks
 
 [db]	
-54.215.96.125 ansible_user=ahicks
-52.9.161.95 ansible_user=ahicks
-54.215.173.105 ansible_user=ahicks
+52.9.139.21 ansible_user=ahicks
+13.52.21.155 ansible_user=ahicks
+52.52.7.225 ansible_user=ahicks
 
 [morpheus]
-54.193.66.37 ansible_user=ahicks
-52.8.21.41 ansible_user=ahicks
+52.9.224.141 ansible_user=ahicks
+52.9.179.164 ansible_user=ahicks

@@ -4,7 +4,7 @@
       name: "{{ morpheus_db }}"
       login_user: root
       login_password: "{{ mysql_root_pw }}"
-  when: inventory_hostname == "{{ percona_master }}"
+  when: inventory_hostname == "{{ groups['db'][0] }}"
 
 - name: Percona create the service user
   mysql_user:
@@ -16,5 +16,5 @@
       state: present
       priv: '{{ morpheus_db }}.*:ALL'
   with_items: "{{ lookup('template', 'percona.morpheus.j2') }}"
-  when: inventory_hostname == "{{ percona_master }}"
+  when: inventory_hostname == "{{ groups['db'][0] }}"
     

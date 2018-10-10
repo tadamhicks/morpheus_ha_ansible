@@ -8,22 +8,22 @@
   systemd:
       name: mysql@bootstrap
       state: started
-  when: inventory_hostname == "{{ percona_master }}"
+  when: inventory_hostname == "{{ groups['db'][0] }}"
 
 - name: Percona join worker nodes
   systemd:
       name: mysql
       state: started
-  when: inventory_hostname != "{{ percona_master }}"
+  when: inventory_hostname != "{{ groups['db'][0] }}"
 
 - name: Percona master stop bootstrap
   systemd:
       name: mysql@bootstrap
       state: stopped
-  when: inventory_hostname == "{{ percona_master }}"
+  when: inventory_hostname == "{{ groups['db'][0] }}"
 
 - name: Percona master start mysql
   systemd:
       name: mysql
       state: started
-  when: inventory_hostname == "{{ percona_master }}"
+  when: inventory_hostname == "{{ groups['db'][0] }}"

@@ -4,7 +4,6 @@ mysql_root_pw: password
 sstuser: sstuser
 sstpassword: password
 wsrep_cluster_name: morpheus
-percona_master: 54.215.96.125
 morpheus_db: morpheusdb
 morpheus_db_user: morpheus
 morpheus_db_pass: password
@@ -25,8 +24,6 @@ tags: 'ha-mode=all,ha-sync-mode=automatic'
 rabbitmq_lb: 198.68.0.1
 rabbitmq_user: morpheus
 rabbitmq_password: password
-rabbitmq_master: 13.56.119.89
-rabbitmq_master_hostname: adamhicks-aws-adamcent-96
 rabbitmq_plugins: 
     - rabbitmq_stomp
     - rabbitmq_management
