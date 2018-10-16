@@ -1,3 +1,4 @@
+appliance_url: gottagetaway.com
 percona_repo_url: http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-6.noarch.rpm
 percona_db_version: Percona-XtraDB-Cluster-57
 mysql_root_pw: password
