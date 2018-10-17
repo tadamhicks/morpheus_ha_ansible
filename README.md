@@ -12,6 +12,8 @@ This is a repo of Ansible roles that allows you to provision a High Availablilit
 * Odd Number Percona XtraDB Cluster Nodes (will support additional nodes)
   * single node implementations not supported
 
+![alt text](https://github.com/tadamhicks/morpheus_ha_ansible/blob/master/HA.jpg "Morpheus HA Architecture Example")
+
 ### Assumptions:
 
 * CentOS 7 only (right now)
