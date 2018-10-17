@@ -5,15 +5,21 @@ This is a repo of Ansible roles that allows you to provision a High Availablilit
 ## Architecture
 
 * 2 App servers
-* 3 Elasticsearch nodes (will support additional nodes)
-* 3 RabbitMQ nodes (will support additional nodes)
-* 3 Percona XtraDB Cluster Nodes (will support additional nodes)
+* Odd Number Elasticsearch nodes (will support additional nodes)
+  * single node implementations not supported
+* Odd Number RabbitMQ nodes (will support additional nodes)
+  * single node implementations not supported
+* Odd Number Percona XtraDB Cluster Nodes (will support additional nodes)
+  * single node implementations not supported
 
 ### Assumptions:
 
 * CentOS 7 only (right now)
-* 11 nodes only (right now)
 * Entirely separated services (right now)
+* A valid loadbalancer/VIP for RabbitMQ has been configured
+  * Ports and server mappings for ports 5672 and 61613
+* A valid loadbalancer/VIP for application tier servers has been configured
+  * Ports and server mappings for ports 443 and 80
 
 ## Getting Started
 
