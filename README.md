@@ -43,5 +43,5 @@ Here is an example of a valid `hosts` file including the requisite groups:
 
 Once this has been configured it is very straightforward to run the `morpheus.yml` playbook on these hosts:
 ```
-ansible-playbook -i /path/to/hosts morpheus.yml
+slimshady@localhost:~$ ansible-playbook -i /path/to/hosts morpheus.yml
 ```
