@@ -1,0 +1,4 @@
+---
+- include_tasks: morpheus_etc_hosts.yml
+
+- include_tasks: morpheus_packages.yml

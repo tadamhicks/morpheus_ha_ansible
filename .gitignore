@@ -3,3 +3,4 @@ ansible-morpheus.code-workspace
 .DS_Store
 test.yml
 hosts
+.vscode

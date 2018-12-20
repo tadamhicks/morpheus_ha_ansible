@@ -4,7 +4,6 @@
       names: "{{ rabbitmq_plugins | join(',') }}"
       state: enabled
   when:
-      - inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
       - rabbitmq_plugins != []
 
 - name: get the list of active plugins to disable
