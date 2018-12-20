@@ -11,6 +11,7 @@ wsrep_node_address={{ ansible_default_ipv4.address }}
 
 wsrep_sst_method=xtrabackup-v2
 wsrep_sst_auth={{ sstuser }}:{{ sstpassword }}
+wsrep_sync_wait=2
 pxc_strict_mode=PERMISSIVE
 
 binlog_format=ROW
