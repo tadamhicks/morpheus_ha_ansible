@@ -1,0 +1,22 @@
+---
+- name: RabbitMQ | setting morpheusAgentActions queue policies
+  rabbitmq_policy:
+      name: 'morpheusAgentActions'
+      pattern: 'morpheusAgentActions.*'
+      vhost: '{{ vhost_name }}'
+      apply_to: 'queues'
+      tags:
+          expires: 1800000
+      state: present
+  when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
+
+- name: RabbitMQ | setting morpheusAgentActions queue policies
+  rabbitmq_policy:
+      name: 'statCommands'
+      pattern: 'statCommands.*'
+      vhost: '{{ vhost_name }}'
+      apply_to: 'queues'
+      tags:
+          expires: 1800000
+      state: present
+  when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}" 

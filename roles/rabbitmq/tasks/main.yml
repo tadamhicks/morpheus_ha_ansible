@@ -17,3 +17,5 @@
 
 - include_tasks: rabbitmq_ha_config.yml
   when: config_rabbitmq_ha and enable_rabbitmq_clustering
+
+- include_tasks: rabbitmq_queue_policy.yml

@@ -21,7 +21,6 @@ erlang_cookie: LSKNKBELKPSTDBBCHETL
 vhost_name: morpheus
 durable: true
 routing_key: morpheus
-tags: 'ha-mode=all,ha-sync-mode=automatic'
 rabbitmq_lb: 52.9.162.182
 rabbitmq_user: morpheus
 rabbitmq_password: password

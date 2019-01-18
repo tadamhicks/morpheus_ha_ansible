@@ -17,6 +17,13 @@
   when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
 
 - name: rabbitmq_ha_config | setting up ha on queue(s)
-  rabbitmq_policy: name='ha-all' pattern='.*' vhost='{{ vhost_name }}' tags="{{ tags }}" state=present
+  rabbitmq_policy:
+      name: 'ha-all'
+      pattern: '.*'
+      vhost: '{{ vhost_name }}'
+      tags:
+          ha-mode: all
+          ha-sync-mode: automatic
+      state: present
   run_once: true
   when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
