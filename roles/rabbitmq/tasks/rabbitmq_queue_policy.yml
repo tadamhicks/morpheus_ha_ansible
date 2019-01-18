@@ -5,6 +5,7 @@
       pattern: 'morpheusAgentActions.*'
       vhost: '{{ vhost_name }}'
       apply_to: 'queues'
+      priority: 1
       tags:
           expires: 1800000
       state: present
@@ -16,8 +17,8 @@
       pattern: 'statCommands.*'
       vhost: '{{ vhost_name }}'
       apply_to: 'queues'
+      priority: 1
       tags:
           expires: 1800000
       state: present
   when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
-  
