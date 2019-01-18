@@ -1,17 +1,17 @@
 ---
-- name: rabbitmq_ha_config | install rabbitMQ admin
+- name: RabitMQ | install rabbitMQ admin
   rabbitmq_plugin:
       names: "{{ rabbitmq_plugins | join(',') }}"
       state: enabled
   when:
       - rabbitmq_plugins != []
 
-- name: get the list of active plugins to disable
+- name: RabitMQ | get the list of active plugins to disable
   command: rabbitmq-plugins list -e -m
   register: result
   when: rabbitmq_plugins == []
 
-- name: disable plugins if none added in the configuration
+- name: RabitMQ | disable plugins if none added in the configuration
   rabbitmq_plugin:
       name={{ item }}
       state=disabled

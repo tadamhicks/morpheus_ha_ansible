@@ -12,3 +12,4 @@
 - name: Percona pip install python libs for MySQL
   pip:
       name: pymysql
+      

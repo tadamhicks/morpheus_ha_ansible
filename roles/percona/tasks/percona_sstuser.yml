@@ -1,4 +1,4 @@
-- name: Percona create sstuser
+- name: Percona | create sstuser
   mysql_user:
       name: "{{ sstuser }}"
       password: "{{ sstpassword }}"

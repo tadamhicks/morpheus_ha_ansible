@@ -5,5 +5,7 @@
 
 - include_tasks: elasticsearch_config.yml
 
-- name: restart Elasticsearch
-  service: name=elasticsearch state=restarted
+- name: Elasticsearch | restart Elasticsearch
+  service:
+      name: elasticsearch
+      state: restarted

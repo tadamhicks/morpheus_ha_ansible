@@ -27,3 +27,4 @@ rabbitmq_password: password
 rabbitmq_plugins: 
     - rabbitmq_stomp
     - rabbitmq_management
+    

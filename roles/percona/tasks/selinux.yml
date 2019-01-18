@@ -1,9 +1,9 @@
 ---
-- name: Disable SELinux at next reboot
+- name: Percona | Disable SELinux at next reboot
   selinux:
     state: disabled
 
-- name: Set SELinux in permissive mode until the machine is rebooted
+- name: Percona | Set SELinux in permissive mode until the machine is rebooted
   command: setenforce 0
   ignore_errors: true
   changed_when: false

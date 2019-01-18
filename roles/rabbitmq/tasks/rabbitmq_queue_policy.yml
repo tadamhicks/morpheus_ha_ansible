@@ -19,4 +19,5 @@
       tags:
           expires: 1800000
       state: present
-  when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}" 
+  when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
+  

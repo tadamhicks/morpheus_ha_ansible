@@ -1,10 +1,10 @@
 ---
-- name: rabbitmq_ha_config | creating vhost
+- name: RabitMQ | creating vhost
   rabbitmq_vhost:
       name: "{{ vhost_name }}"
   when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
 
-- name: rabbitmq_ha_config | creating user
+- name: RabitMQ | creating user
   rabbitmq_user:
       user: "{{ rabbitmq_user }}"
       password: "{{ rabbitmq_password }}"
@@ -16,7 +16,7 @@
       state: present
   when: inventory_hostname == "{{ groups['rabbit_cluster'][0] }}"
 
-- name: rabbitmq_ha_config | setting up ha on queue(s)
+- name: RabitMQ | setting up ha on queue(s)
   rabbitmq_policy:
       name: 'ha-all'
       pattern: '.*'
